@@ -22,7 +22,7 @@
                <children>
                   <AnchorPane>
                      <children>
-                        <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-background-color: d1aa62;" text="View Menu" textFill="#cc3d00" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="100.0">
+                        <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-background-color: d1aa62;" text="View Menu" textAlignment="CENTER" textFill="#cc3d00" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="100.0">
                            <font>
                               <Font name="Bodoni MT Bold" size="25.0" />
                            </font>
