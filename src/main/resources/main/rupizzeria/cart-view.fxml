@@ -3,10 +3,15 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
 <AnchorPane prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.rupizzeria.ShoppingCartController">
    <children>
-      <Button mnemonicParsing="false" onAction="#displayMenu" text="MenuTest" />
-      <Button fx:id="MainTest" layoutY="200.0" mnemonicParsing="false" onAction="#displayMain" text="MainTest" />
+      <BorderPane prefHeight="200.0" prefWidth="200.0">
+         <left>
+            <Button mnemonicParsing="false" onAction="#displayMenu" text="MenuTest" BorderPane.alignment="CENTER" />
+         </left>
+         <right>
+            <Button fx:id="MainTest" mnemonicParsing="false" onAction="#displayMain" text="MainTest" BorderPane.alignment="CENTER" />
+         </right>
+      </BorderPane>
    </children>
 </AnchorPane>

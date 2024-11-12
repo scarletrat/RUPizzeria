@@ -1,16 +1,103 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.rupizzeria.RUPizzeriaMainController">
-   <left>
-      <Button mnemonicParsing="false" onAction="#displayMenuView" text="MenuTest" BorderPane.alignment="CENTER" />
-   </left>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="800.0" style="-fx-background-color: fdfd96;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.rupizzeria.RUPizzeriaMainController">
    <center>
-      <Button mnemonicParsing="false" onAction="#displayCartView" text="CartTest" BorderPane.alignment="CENTER" />
+      <GridPane prefHeight="209.0" prefWidth="727.0" BorderPane.alignment="CENTER">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+          <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <AnchorPane>
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-background-color: d1aa62;" text="View Menu" textFill="#cc3d00" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="100.0">
+                           <font>
+                              <Font name="Bodoni MT Bold" size="25.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane>
+                     <children>
+                        <ImageView fitHeight="200.0" fitWidth="211.0" layoutX="-10.0" layoutY="36.0" onMouseClicked="#displayMenuView" onMouseEntered="#imagePopout" onMouseExited="#imagePopoutExit" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="28.0" AnchorPane.rightAnchor="28.0" AnchorPane.topAnchor="0.0">
+                           <image>
+                              <Image url="@menu.jpg" />
+                           </image>
+                           <clip>
+                              <Rectangle height="225.6" width="225.6" />
+                           </clip>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+               <children>
+                  <AnchorPane>
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-background-color: d1aa62;" text="View Cart" textFill="#cc3d00" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="100.0">
+                           <font>
+                              <Font name="Bodoni MT Bold" size="25.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane>
+                     <children>
+                        <ImageView fitHeight="140.666" fitWidth="211.0" onMouseClicked="#displayCartView" onMouseEntered="#imagePopout" onMouseExited="#imagePopoutExit" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="63.0" AnchorPane.rightAnchor="63.0" AnchorPane.topAnchor="0.0">
+                           <image>
+                              <Image url="@shopping_cart.png" />
+                           </image></ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2">
+               <children>
+                  <AnchorPane>
+                     <children>
+                        <Label alignment="CENTER" contentDisplay="CENTER" maxHeight="31.99999" style="-fx-background-color: d1aa62;" text="View Order List" textFill="#cc3d00" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="100.0">
+                           <font>
+                              <Font name="Bodoni MT Bold" size="25.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+                  <AnchorPane>
+                     <children>
+                        <ImageView fitHeight="140.666" fitWidth="200.0" layoutX="23.0" layoutY="25.0" onMouseClicked="#displayListView" onMouseEntered="#imagePopout" onMouseExited="#imagePopoutExit" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="63.0" AnchorPane.rightAnchor="63.0" AnchorPane.topAnchor="0.0">
+                           <image>
+                              <Image url="@order_list.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </VBox>
+         </children>
+      </GridPane>
    </center>
-   <bottom>
-      <Button mnemonicParsing="false" onAction="#displayListView" text="ListTest" BorderPane.alignment="CENTER" />
-   </bottom>
+   <top>
+      <AnchorPane BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-background-color: d1aa62;" text="RU PIZZERIA" textFill="#cc3d00" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font name="Bodoni MT" size="35.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+   </top>
 </BorderPane>

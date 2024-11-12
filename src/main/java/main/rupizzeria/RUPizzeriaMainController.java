@@ -7,12 +7,14 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 
 public class RUPizzeriaMainController {
     private Stage primaryStage; //the reference of the main window.
     private Scene primaryScene; //the ref. of the scene set to the primaryStage
+
 
     /**
      * Set the reference of the stage and scene before show()
@@ -29,7 +31,7 @@ public class RUPizzeriaMainController {
         Stage view1 = new Stage(); //if we want to use a new window
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("menu-view.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 500, 600);
+            Scene scene = new Scene(fxmlLoader.load(), 800, 500);
             primaryStage.setScene(scene);
             primaryStage.setTitle("RUPizzeria Menu");
             RUPizzeriaMenuController menuViewController = fxmlLoader.getController();
@@ -53,7 +55,7 @@ public class RUPizzeriaMainController {
         Stage view1 = new Stage(); //if we want to use a new window
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("cart-view.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 500, 600);
+            Scene scene = new Scene(fxmlLoader.load(), 800, 500);
             primaryStage.setScene(scene);
             primaryStage.setTitle("Shopping Cart");
             ShoppingCartController cartController = fxmlLoader.getController();
@@ -77,7 +79,7 @@ public class RUPizzeriaMainController {
         Stage view1 = new Stage(); //if we want to use a new window
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("orderList-view.fxml"));
-            Scene scene = new Scene(fxmlLoader.load(), 500, 600);
+            Scene scene = new Scene(fxmlLoader.load(), 800, 500);
             primaryStage.setScene(scene);
             primaryStage.setTitle("Orders Placed");
             OrderPlacedController listController = fxmlLoader.getController();
@@ -94,6 +96,18 @@ public class RUPizzeriaMainController {
             alert.setContentText("Couldn't load orderList-view.fxml.");
             alert.showAndWait();
         }
+    }
+    @FXML
+    protected void imagePopout(MouseEvent event) {
+        ImageView imageView = (ImageView) event.getSource();
+        imageView.setScaleX(1.2);
+        imageView.setScaleY(1.2);
+    }
+    @FXML
+    protected void imagePopoutExit(MouseEvent event) {
+        ImageView imageView = (ImageView) event.getSource();
+        imageView.setScaleX(1.0);
+        imageView.setScaleY(1.0);
     }
 
 
