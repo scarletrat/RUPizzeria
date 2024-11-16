@@ -2,7 +2,11 @@ package main.rupizzeria;
 
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+
+import javafx.scene.control.Label;
 
 public class ShoppingCartController {
     private RUPizzeriaMainController mainController;
@@ -45,4 +49,16 @@ public class ShoppingCartController {
         mainController.displayMenuView();
     }
 
+    @FXML
+    protected void imagePopout(MouseEvent event) {
+        Label label = (Label) event.getSource();
+        label.setScaleX(1.2);
+        label.setScaleY(1.2);
+    }
+    @FXML
+    protected void imagePopoutExit(MouseEvent event) {
+        Label label = (Label) event.getSource();
+        label.setScaleX(1.0);
+        label.setScaleY(1.0);
+    }
 }
