@@ -4,16 +4,17 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Label;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class RUPizzeriaMainController {
     private Stage primaryStage; //the reference of the main window.
     private Scene primaryScene; //the ref. of the scene set to the primaryStage
+    private ArrayList<Order> orderlist = new ArrayList<>();
+    private ArrayList<Pizza> pizzas = new ArrayList<>();
 
 
     /**
@@ -110,5 +111,35 @@ public class RUPizzeriaMainController {
         imageView.setScaleY(1.0);
     }
 
+    /**
+     * Get the current cart list of pizzas.
+     * @return pizzas list.
+     */
+    public ArrayList<Pizza> getPizzas(){
+        return pizzas;
+    }
+
+    /**
+     * Add a pizza to the cart/a list of pizzas.
+     * @param pizza the pizza to be added.
+     */
+    protected void addCart(Pizza pizza){
+        pizzas.add(pizza);
+    }
+
+    /**
+     * Placed an order after clicking place order button.
+     */
+    protected void placeOrder(){
+        Order order = new Order(pizzas);
+        if(orderlist.isEmpty()){
+            order.setOrderNumber(0);
+        }else {
+            int size = orderlist.size() - 1;
+            order.setOrderNumber(orderlist.get(size).getOrderNumber()+1);
+        }
+        orderlist.add(order);
+        orderlist = new ArrayList<>();
+    }
 
 }

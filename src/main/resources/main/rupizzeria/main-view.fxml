@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
@@ -38,6 +39,9 @@
                            <clip>
                               <Rectangle height="225.6" width="225.6" />
                            </clip>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </ImageView>
                      </children>
                   </AnchorPane>
@@ -59,7 +63,10 @@
                         <ImageView fitHeight="140.666" fitWidth="211.0" onMouseClicked="#displayCartView" onMouseEntered="#imagePopout" onMouseExited="#imagePopoutExit" pickOnBounds="true" preserveRatio="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="63.0" AnchorPane.rightAnchor="63.0" AnchorPane.topAnchor="0.0">
                            <image>
                               <Image url="@shopping_cart.png" />
-                           </image></ImageView>
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor></ImageView>
                      </children>
                   </AnchorPane>
                </children>
@@ -81,6 +88,9 @@
                            <image>
                               <Image url="@order_list.png" />
                            </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </ImageView>
                      </children>
                   </AnchorPane>
@@ -94,7 +104,7 @@
          <children>
             <Label alignment="CENTER" contentDisplay="CENTER" style="-fx-background-color: d1aa62;" text="RU PIZZERIA" textFill="#cc3d00" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <font>
-                  <Font name="Bodoni MT" size="35.0" />
+                  <Font name="Bodoni MT Bold" size="35.0" />
                </font>
             </Label>
          </children>

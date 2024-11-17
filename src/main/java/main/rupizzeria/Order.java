@@ -10,11 +10,15 @@ public class Order {
         this.pizzas = new ArrayList<>();
     }
 
+    public Order(ArrayList<Pizza> pizzas){
+        this.pizzas = pizzas;
+    }
+
     public void setOrderNumber(int number){
         this.number = number;
     }
 
-    public int getNumber(){
+    public int getOrderNumber(){
         return this.number;
     }
 

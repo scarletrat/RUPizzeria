@@ -6,16 +6,19 @@ package main.rupizzeria;
  * @author Gordon Lin modified Nove. 08, 2024
  */
 public enum Topping {
-    SAUSAGE,
-    PEPPERONI,
-    GREEN_PEPPER,
-    ONION,
-    MUSHROOM,
     BBQ_CHICKEN,
-    PROVOLONE,
-    CHEDDAR,
     BEEF,
-    HAM;
+    CHEDDAR,
+    GREEN_PEPPER,
+    HAM,
+    MUSHROOM,
+    ONION,
+    PEANUT,
+    PEPPERONI,
+    PINEAPPLE,
+    PROVOLONE,
+    SAUSAGE,
+    SPINACH;
 
     /**
      * This is a string representation of Topping.

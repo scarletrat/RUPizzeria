@@ -18,4 +18,22 @@ public enum Size {
     public String toString(){
         return this.name().charAt(0)+ this.name().substring(1).toLowerCase();
     }
+
+    /**
+     * Get the Enum size from String input.
+     * @param input the input.
+     * @return the enum.
+     */
+    public static Size getSize(String input){
+        if(input.equalsIgnoreCase("small")){
+            return Size.SMALL;
+        }else if(input.equalsIgnoreCase("medium")){
+            return Size.MEDIUM;
+        }else if(input.equalsIgnoreCase("large")){
+            return Size.LARGE;
+        }else {
+            return null;
+        }
+    }
+
 }
