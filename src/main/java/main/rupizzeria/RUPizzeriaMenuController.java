@@ -7,7 +7,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -143,7 +142,7 @@ public class RUPizzeriaMenuController {
     private Pizza getPizza(){
         Pizza pizza = null;
         if(pizzaStyle.getValue().equalsIgnoreCase("Chicago Style")){
-            PizzaFactory temp = new ChicagoPizza();
+            ChicagoPizza temp = new ChicagoPizza();
             if(pizzaType.getValue().equalsIgnoreCase("Deluxe")){
                 pizza = temp.createDeluxe();
             }else if(pizzaType.getValue().equalsIgnoreCase("BBQ Chicken")){
@@ -154,7 +153,7 @@ public class RUPizzeriaMenuController {
                 pizza = temp.createBuildYourOwn();
             }
         } else if (pizzaStyle.getValue().equalsIgnoreCase("New York Style")) {
-                PizzaFactory temp = new NYPizza();
+            NYPizza temp = new NYPizza();
             if(pizzaType.getValue().equalsIgnoreCase("Deluxe")){
                 pizza = temp.createDeluxe();
             }else if(pizzaType.getValue().equalsIgnoreCase("BBQ Chicken")){
@@ -266,19 +265,6 @@ public class RUPizzeriaMenuController {
         alert.setHeaderText("Order");
         alert.setContentText("Pizza added to your shopping cart!");
         alert.showAndWait();
-
-    }
-    @FXML
-    protected void imagePopout(MouseEvent event) {
-        Label label = (Label) event.getSource();
-        label.setScaleX(1.2);
-        label.setScaleY(1.2);
-    }
-    @FXML
-    protected void imagePopoutExit(MouseEvent event) {
-        Label label = (Label) event.getSource();
-        label.setScaleX(1.0);
-        label.setScaleY(1.0);
     }
 
 }

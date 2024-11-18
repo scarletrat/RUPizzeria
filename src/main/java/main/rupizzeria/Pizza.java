@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * This abstract class represents a pizza and is a superclass of Deluxe, Meatzza
  * and Build Your Own Pizzas. Has the abstract method price().
- * @author Gordon Lin modified Nov. 08, 2024
+ * @author Gordon Lin modified Nov. 17, 2024
  */
 public abstract class Pizza {
     private ArrayList<Topping> toppings;
@@ -64,11 +64,19 @@ public abstract class Pizza {
     }
 
     /**
-     * Add toppings to the pizza.
+     * Add topping to the pizza.
      * @param topping the toppings list.
      */
     public void addTopping(Topping topping) {
         toppings.add(topping);
+    }
+
+    /**
+     * Remove the topping from the pizza.
+     * @param topping the toppings list.
+     */
+    public void removeTopping(Topping topping) {
+        toppings.remove(topping);
     }
 
     /**
