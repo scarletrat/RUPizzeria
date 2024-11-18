@@ -9,10 +9,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 public class OrderPlacedController {
@@ -78,7 +81,6 @@ public class OrderPlacedController {
                 }
             }
         }
-        System.out.println(orderSelected.getPizzas());
         ObservableList<Pizza> list = FXCollections.observableArrayList(orderSelected.getPizzas());
         orders.setItems(list);
 
@@ -103,6 +105,27 @@ public class OrderPlacedController {
             }
         }    }
 
+    @FXML
+    protected void export() throws FileNotFoundException {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text Files", "*.txt"));
+        File file = fileChooser.showSaveDialog(stage);
+        fileChooser.setTitle("Source file for export");
+        if(file != null){
+            writeToFile(file, orderlist);
+        }
+    }
+
+    private void writeToFile(File file, ArrayList<Order> orders) throws FileNotFoundException {
+        PrintWriter pw = new PrintWriter(file);
+        for(Order order: orders){
+            pw.println("Order Number: " + order.getOrderNumber());
+            for(Pizza pizza: order.getPizzas()){
+                pw.println(pizza);
+            }
+        }
+        pw.close();
+    }
     @FXML
     protected void imagePopout(MouseEvent event) {
         Label label = (Label) event.getSource();

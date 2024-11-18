@@ -50,7 +50,7 @@ public class BuildYourOwn extends Pizza{
         }else{
             type = "New York Style";
         }
-        return "BuildYourOwn(" + type +  super.toString();
+        return "Build Your Own(" + type +  super.toString();
     }
 
 }
