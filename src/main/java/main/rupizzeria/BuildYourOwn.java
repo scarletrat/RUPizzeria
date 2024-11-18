@@ -2,7 +2,7 @@ package main.rupizzeria;
 
 /**
  * This class represents a Build Your Own type pizza and is a subclass of Pizza object.
- * @author Gordon Lin modified Nov. 08, 2024
+ * @author Gordon Lin modified Nov. 17, 2024
  */
 public class BuildYourOwn extends Pizza{
 
@@ -34,6 +34,7 @@ public class BuildYourOwn extends Pizza{
             return -1;
         }
         price += this.getToppings().size() * 1.69;
+        price = Math.round(price * 100.0) / 100.0;
         return price;
     }
 

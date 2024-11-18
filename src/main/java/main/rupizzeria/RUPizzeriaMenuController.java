@@ -142,7 +142,7 @@ public class RUPizzeriaMenuController {
     private Pizza getPizza(){
         Pizza pizza = null;
         if(pizzaStyle.getValue().equalsIgnoreCase("Chicago Style")){
-            ChicagoPizza temp = new ChicagoPizza();
+            PizzaFactory temp = new ChicagoPizza();
             if(pizzaType.getValue().equalsIgnoreCase("Deluxe")){
                 pizza = temp.createDeluxe();
             }else if(pizzaType.getValue().equalsIgnoreCase("BBQ Chicken")){
@@ -153,7 +153,7 @@ public class RUPizzeriaMenuController {
                 pizza = temp.createBuildYourOwn();
             }
         } else if (pizzaStyle.getValue().equalsIgnoreCase("New York Style")) {
-            NYPizza temp = new NYPizza();
+            PizzaFactory temp = new NYPizza();
             if(pizzaType.getValue().equalsIgnoreCase("Deluxe")){
                 pizza = temp.createDeluxe();
             }else if(pizzaType.getValue().equalsIgnoreCase("BBQ Chicken")){
