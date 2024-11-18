@@ -34,4 +34,12 @@ public class Order {
         this.pizzas.remove(pizza);
     }
 
+//    @Override
+//    public String toString() {
+//        String top = "";
+//        for(int i = 0;i < toppings.size(); i++){
+//            top = top + " " + toppings.get(i) + ",";
+//        }
+//        return " - " + crust + "),  " + " Toppings: " + top + " " + size + " $"+this.price();
+//    }
 }

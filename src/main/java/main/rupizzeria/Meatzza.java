@@ -49,7 +49,7 @@ public class Meatzza extends Pizza{
         }else{
             type = "New York Style";
         }
-        return "BBQChicken(" + type +  super.toString();
+        return "Meatzza(" + type +  super.toString();
     }
 
 }

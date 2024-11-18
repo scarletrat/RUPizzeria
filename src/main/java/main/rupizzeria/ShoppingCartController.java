@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -19,6 +20,8 @@ public class ShoppingCartController {
     private Scene primaryScene;
     private Stage primaryStage;
     private ArrayList<Pizza> pizzas;
+    private ObservableList<Pizza> list;
+
 
     @FXML
     private ListView<Pizza> cartList;
@@ -35,7 +38,7 @@ public class ShoppingCartController {
     private void setListView(){
         pizzas = mainController.getPizzas();
         if(!pizzas.isEmpty()) {
-            ObservableList<Pizza> list = FXCollections.observableArrayList(pizzas);
+            list = FXCollections.observableArrayList(pizzas);
             cartList.getItems().addAll(list);
         }
         updateCost();
@@ -46,18 +49,25 @@ public class ShoppingCartController {
      */
     private void updateCost(){
         double subtotal = 0.0;
-        for(int i =0; i<pizzas.size();i++){
-            subtotal += pizzas.get(i).price();
+        if(!pizzas.isEmpty()) {
+            for (int i = 0; i < pizzas.size(); i++) {
+                subtotal += pizzas.get(i).price();
+            }
+            if (subtotal == 0.0) {
+                return;
+            }
+            double roundedSub = Math.round(subtotal * 100.0) / 100.0;
+            subtotalText.setText(Double.toString(roundedSub));
+            double tax = subtotal * 6.625 / 100;
+            tax = Math.round(tax * 100.0) / 100.0;
+            taxText.setText(Double.toString(tax));
+            totalText.setText(Double.toString(roundedSub + tax));
         }
-        if(subtotal == 0.0){
-            return;
+        else {
+            subtotalText.setText(null);
+            taxText.setText(null);
+            totalText.setText(null);
         }
-        double roundedSub = Math.round(subtotal * 100.0) / 100.0;
-        subtotalText.setText(Double.toString(roundedSub));
-        double tax = subtotal * 6.625/100;
-        tax = Math.round(tax * 100.0) / 100.0;
-        taxText.setText(Double.toString(tax));
-        totalText.setText(Double.toString(roundedSub+tax));
     }
 
     /**
@@ -70,9 +80,18 @@ public class ShoppingCartController {
         Pizza pizza = cartList.getSelectionModel().getSelectedItem();
         pizzas.remove(pizza);
         cartList.getItems().remove(pizza);
+
         setListView();
     }
 
+    /**
+     * clears all pizzas from list view
+     */
+    public void clearList(){
+        pizzas.clear();
+        cartList.getItems().clear();
+        setListView();
+    }
     /**
      * Get the reference to the MainController object.
      * We can call any public method defined in the controller through the reference.
@@ -119,4 +138,16 @@ public class ShoppingCartController {
         label.setScaleX(1.0);
         label.setScaleY(1.0);
     }
+
+    public void placeOrder(){
+        mainController.placeOrder();
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Information");
+        alert.setHeaderText("Order");
+        alert.setContentText("Pizza order placed!");
+        alert.showAndWait();
+        clearList();
+    }
+
+
 }

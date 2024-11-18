@@ -220,7 +220,7 @@
    <bottom>
       <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="75.0" prefWidth="605.0" spacing="150.0" BorderPane.alignment="CENTER">
          <children>
-            <Label alignment="CENTER" contentDisplay="CENTER" minWidth="227.2" onMouseClicked="#displayMain" style="-fx-background-color: d1aa62;" text="Main">
+            <Label alignment="CENTER" contentDisplay="CENTER" minWidth="227.2" onMouseClicked="#displayMain" onMouseEntered="#imagePopout" onMouseExited="#imagePopoutExit" style="-fx-background-color: d1aa62;" text="Main">
                <font>
                   <Font name="Bodoni MT Bold" size="25.0" />
                </font>
@@ -228,7 +228,7 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Label>
-            <Label alignment="CENTER" contentDisplay="CENTER" minWidth="227.2" onMouseClicked="#displayCart" style="-fx-background-color: d1aa62;" text="Cart">
+            <Label alignment="CENTER" contentDisplay="CENTER" minWidth="227.2" onMouseClicked="#displayCart" onMouseEntered="#imagePopout" onMouseExited="#imagePopoutExit" style="-fx-background-color: d1aa62;" text="Cart">
                <font>
                   <Font name="Bodoni MT Bold" size="25.0" />
                </font>

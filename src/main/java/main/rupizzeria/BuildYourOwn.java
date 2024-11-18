@@ -49,7 +49,7 @@ public class BuildYourOwn extends Pizza{
         }else{
             type = "New York Style";
         }
-        return "BBQChicken(" + type +  super.toString();
+        return "BuildYourOwn(" + type +  super.toString();
     }
 
 }

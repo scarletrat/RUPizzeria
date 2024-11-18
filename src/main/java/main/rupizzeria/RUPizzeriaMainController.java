@@ -120,6 +120,14 @@ public class RUPizzeriaMainController {
     }
 
     /**
+     * get currrent order list of pizza lists
+     * @return orderlist
+     */
+    public ArrayList<Order> getOrderlist() {
+        return orderlist;
+    }
+
+    /**
      * Add a pizza to the cart/a list of pizzas.
      * @param pizza the pizza to be added.
      */
@@ -127,19 +135,20 @@ public class RUPizzeriaMainController {
         pizzas.add(pizza);
     }
 
+
     /**
      * Placed an order after clicking place order button.
      */
     protected void placeOrder(){
-        Order order = new Order(pizzas);
+        ArrayList<Pizza> temp = new ArrayList<>(pizzas);
+        Order order = new Order(temp);
         if(orderlist.isEmpty()){
-            order.setOrderNumber(0);
+            order.setOrderNumber(1);
         }else {
-            int size = orderlist.size() - 1;
+            int size = orderlist.size()-1;
             order.setOrderNumber(orderlist.get(size).getOrderNumber()+1);
         }
         orderlist.add(order);
-        orderlist = new ArrayList<>();
     }
 
 }
