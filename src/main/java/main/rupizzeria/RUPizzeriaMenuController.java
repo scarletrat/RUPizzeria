@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -259,12 +260,30 @@ public class RUPizzeriaMenuController {
 
     @FXML
     public void addToCart(){
-        mainController.addCart(getPizza());
+        Pizza pizza = getPizza();
+        if(pizzaType.getValue().equalsIgnoreCase("Build your own")){
+            ObservableList<Topping> toppings = selected.getItems();
+            for (Topping topping : toppings) {
+                pizza.addTopping(topping);
+            }
+        }
+        mainController.addCart(pizza);
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Information");
         alert.setHeaderText("Order");
         alert.setContentText("Pizza added to your shopping cart!");
         alert.showAndWait();
     }
-
+    @FXML
+    protected void imagePopout(MouseEvent event) {
+        Label label = (Label) event.getSource();
+        label.setScaleX(1.2);
+        label.setScaleY(1.2);
+    }
+    @FXML
+    protected void imagePopoutExit(MouseEvent event) {
+        Label label = (Label) event.getSource();
+        label.setScaleX(1.0);
+        label.setScaleY(1.0);
+    }
 }

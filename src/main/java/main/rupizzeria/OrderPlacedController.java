@@ -97,7 +97,8 @@ public class OrderPlacedController {
         if(!orderlist.isEmpty()&&indexBox.getValue()!=null) {
             for (Order order : orderlist) {
                 if (order.getOrderNumber() == (indexBox.getValue())) {
-
+                    indexBox.getItems().remove(indexBox.getValue());
+                    break;
                 }
             }
         }    }

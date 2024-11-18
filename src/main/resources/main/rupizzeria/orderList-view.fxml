@@ -66,7 +66,7 @@
                <children>
                   <ListView fx:id="orders" layoutX="348.0" layoutY="14.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="25.0" />
                </children></AnchorPane>
-            <Button mnemonicParsing="false" prefWidth="150.0" style="-fx-background-color: add8e6;" text="Cancel Order" textFill="#6f6fc9" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+            <Button mnemonicParsing="false" onAction="#removeOrder" prefWidth="150.0" style="-fx-background-color: add8e6;" text="Cancel Order" textFill="#6f6fc9" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
                <font>
                   <Font name="Bodoni MT" size="15.0" />
                </font>
