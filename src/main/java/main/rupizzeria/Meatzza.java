@@ -2,7 +2,7 @@ package main.rupizzeria;
 
 /**
  * This class represents a Meatzza pizza and is a subclass of Pizza object.
- * @author Gordon Lin modified Nov. 08, 2024
+ * @author Gordon Lin, Christopher Lee modified Nov. 08, 2024
  */
 public class Meatzza extends Pizza{
 

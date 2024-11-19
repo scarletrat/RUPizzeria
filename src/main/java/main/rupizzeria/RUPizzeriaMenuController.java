@@ -13,6 +13,10 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.util.ArrayList;
 
+/**
+ * Controller in MVC model to add pizzas to shopping cart and controls menu-view. Allows you to switch between displays.
+ *  * @author Gordon Lin, Christopher Lee modified Nov. 08, 2024
+ */
 public class RUPizzeriaMenuController {
     private RUPizzeriaMainController mainController;
     private Stage stage;
@@ -143,7 +147,7 @@ public class RUPizzeriaMenuController {
     private Pizza getPizza(){
         Pizza pizza = null;
         if(pizzaStyle.getValue().equalsIgnoreCase("Chicago Style")){
-            ChicagoPizza temp = new ChicagoPizza();
+            PizzaFactory temp = new ChicagoPizza();
             if(pizzaType.getValue().equalsIgnoreCase("Deluxe")){
                 pizza = temp.createDeluxe();
             }else if(pizzaType.getValue().equalsIgnoreCase("BBQ Chicken")){
@@ -154,7 +158,7 @@ public class RUPizzeriaMenuController {
                 pizza = temp.createBuildYourOwn();
             }
         } else if (pizzaStyle.getValue().equalsIgnoreCase("New York Style")) {
-            NYPizza temp = new NYPizza();
+            PizzaFactory temp = new NYPizza();
             if(pizzaType.getValue().equalsIgnoreCase("Deluxe")){
                 pizza = temp.createDeluxe();
             }else if(pizzaType.getValue().equalsIgnoreCase("BBQ Chicken")){
@@ -259,6 +263,9 @@ public class RUPizzeriaMenuController {
     }
 
     @FXML
+    /**
+     * sends info to mainController to allow us to add to a pizza array list and add pizzas to the cart listview
+     */
     public void addToCart(){
         Pizza pizza = getPizza();
         if(pizzaType.getValue().equalsIgnoreCase("Build your own")){
@@ -275,12 +282,18 @@ public class RUPizzeriaMenuController {
         alert.showAndWait();
     }
     @FXML
+    /**
+     * enlarges image when mouse is in image
+     */
     protected void imagePopout(MouseEvent event) {
         Label label = (Label) event.getSource();
         label.setScaleX(1.2);
         label.setScaleY(1.2);
     }
     @FXML
+    /**
+     * returns image to normal when mouse is out of image
+     */
     protected void imagePopoutExit(MouseEvent event) {
         Label label = (Label) event.getSource();
         label.setScaleX(1.0);

@@ -14,6 +14,10 @@ import javafx.scene.control.Label;
 
 import java.util.ArrayList;
 
+/**
+ * Controller in MVC model used to add orders to the order list and controls cart-view. Allows you to switch between displays.
+ *  * @author Gordon Lin, Christopher Lee modified Nov. 08, 2024
+ */
 public class ShoppingCartController {
     private RUPizzeriaMainController mainController;
     private Stage stage;
@@ -127,18 +131,27 @@ public class ShoppingCartController {
     }
 
     @FXML
+    /**
+     * enlarge image when mouse enters image
+     */
     protected void imagePopout(MouseEvent event) {
         Label label = (Label) event.getSource();
         label.setScaleX(1.2);
         label.setScaleY(1.2);
     }
     @FXML
+    /**
+     * returns image to normal when mouse exits image
+     */
     protected void imagePopoutExit(MouseEvent event) {
         Label label = (Label) event.getSource();
         label.setScaleX(1.0);
         label.setScaleY(1.0);
     }
 
+    /**
+     * adds order to order list
+     */
     public void placeOrder(){
         mainController.placeOrder();
         Alert alert = new Alert(Alert.AlertType.INFORMATION);

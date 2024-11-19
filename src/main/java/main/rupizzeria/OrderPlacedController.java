@@ -17,7 +17,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-
+/**
+ * Controller in MVC model manages list of orders, exports them to a file, and controls orderList-view. Allows you to switch between displays.
+ *  * @author Gordon Lin, Christopher Lee modified Nov. 08, 2024
+ */
 public class OrderPlacedController {
     private RUPizzeriaMainController mainController;
     private Stage stage;
@@ -61,6 +64,9 @@ public class OrderPlacedController {
         primaryStage.setTitle("Welcome to RUPizzeria!");
     }
 
+    /**
+     * updates combo box as indexes array list gets changed
+     */
     void updateComboBox() {
         for (Order order : orderlist) {
             indexes.add(order.getOrderNumber());
@@ -70,7 +76,7 @@ public class OrderPlacedController {
 
     @FXML
     /**
-     * Set the view for cartList and updateCost
+     * Set the view for order list and updateCost
      */
     private void setListView(){
         Order orderSelected = new Order();
@@ -95,6 +101,9 @@ public class OrderPlacedController {
     }
 
     @FXML
+    /**
+     * removes an order from order list and combo box
+     */
     protected void removeOrder(){
         if(!orderlist.isEmpty()&&indexBox.getValue()!=null) {
             for (Order order : orderlist) {
@@ -106,6 +115,9 @@ public class OrderPlacedController {
         }    }
 
     @FXML
+    /**
+     * exports file with orders in file
+     */
     protected void export() throws FileNotFoundException {
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text Files", "*.txt"));
@@ -116,6 +128,12 @@ public class OrderPlacedController {
         }
     }
 
+    /**
+     * takes a file and puts the orders into the file
+     * @param file file to write orders into
+     * @param orders orders to be written into file
+     * @throws FileNotFoundException if file does not exist or cannot be accessed will throw error
+     */
     private void writeToFile(File file, ArrayList<Order> orders) throws FileNotFoundException {
         PrintWriter pw = new PrintWriter(file);
         for(Order order: orders){
@@ -127,12 +145,18 @@ public class OrderPlacedController {
         pw.close();
     }
     @FXML
+    /**
+     * enlarges image when mouse hovers over
+     */
     protected void imagePopout(MouseEvent event) {
         Label label = (Label) event.getSource();
         label.setScaleX(1.2);
         label.setScaleY(1.2);
     }
     @FXML
+    /**
+     * turns image back to normal when mouse exits image
+     */
     protected void imagePopoutExit(MouseEvent event) {
         Label label = (Label) event.getSource();
         label.setScaleX(1.0);

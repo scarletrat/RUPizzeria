@@ -10,6 +10,10 @@ import javafx.scene.input.MouseEvent;
 import java.io.IOException;
 import java.util.ArrayList;
 
+/**
+ * Controller in MVC model connects all controllers and controls main-view. Allows you to switch between displays.
+ *  * @author Gordon Lin, Christopher Lee modified Nov. 08, 2024
+ */
 public class RUPizzeriaMainController {
     private Stage primaryStage; //the reference of the main window.
     private Scene primaryScene; //the ref. of the scene set to the primaryStage
@@ -28,6 +32,9 @@ public class RUPizzeriaMainController {
     }
 
     @FXML
+    /**
+     * allows you to change the display to the menu
+     */
     protected void displayMenuView() {
         Stage view1 = new Stage(); //if we want to use a new window
         try {
@@ -52,6 +59,9 @@ public class RUPizzeriaMainController {
     }
 
     @FXML
+    /**
+     * allows you to change the display to the shopping cart
+     */
     protected void displayCartView() {
         Stage view1 = new Stage(); //if we want to use a new window
         try {
@@ -76,6 +86,9 @@ public class RUPizzeriaMainController {
     }
 
     @FXML
+    /**
+     * allows you to change the display to the order list
+     */
     protected void displayListView() {
         Stage view1 = new Stage(); //if we want to use a new window
         try {
@@ -99,12 +112,18 @@ public class RUPizzeriaMainController {
         }
     }
     @FXML
+    /**
+     * enlarges images when mose enters image
+     */
     protected void imagePopout(MouseEvent event) {
         ImageView imageView = (ImageView) event.getSource();
         imageView.setScaleX(1.2);
         imageView.setScaleY(1.2);
     }
     @FXML
+    /**
+     * returns images to normal when mose exits image
+     */
     protected void imagePopoutExit(MouseEvent event) {
         ImageView imageView = (ImageView) event.getSource();
         imageView.setScaleX(1.0);

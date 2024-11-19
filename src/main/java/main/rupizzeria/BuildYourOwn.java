@@ -2,7 +2,7 @@ package main.rupizzeria;
 
 /**
  * This class represents a Build Your Own type pizza and is a subclass of Pizza object.
- * @author Gordon Lin modified Nov. 17, 2024
+ * @author Gordon Lin, Christopher Lee modified Nov. 17, 2024
  */
 public class BuildYourOwn extends Pizza{
 
