@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 /**
  * Controller in MVC model used to add orders to the order list and controls cart-view. Allows you to switch between displays.
- *  * @author Gordon Lin, Christopher Lee modified Nov. 08, 2024
+ *  * @author Gordon Lin, Christopher Lee modified Nov. 18, 2024
  */
 public class ShoppingCartController {
     private RUPizzeriaMainController mainController;
@@ -89,13 +89,14 @@ public class ShoppingCartController {
     }
 
     /**
-     * clears all pizzas from list view
+     * Clears all pizzas from list view
      */
     public void clearList(){
         pizzas.clear();
         cartList.getItems().clear();
         setListView();
     }
+
     /**
      * Get the reference to the MainController object.
      * We can call any public method defined in the controller through the reference.
@@ -139,9 +140,10 @@ public class ShoppingCartController {
         label.setScaleX(1.2);
         label.setScaleY(1.2);
     }
+
     @FXML
     /**
-     * returns image to normal when mouse exits image
+     * Returns image to normal when mouse exits image
      */
     protected void imagePopoutExit(MouseEvent event) {
         Label label = (Label) event.getSource();
@@ -149,10 +151,11 @@ public class ShoppingCartController {
         label.setScaleY(1.0);
     }
 
+    @FXML
     /**
-     * adds order to order list
+     * Adds order to order list
      */
-    public void placeOrder(){
+    protected void placeOrder(){
         mainController.placeOrder();
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Information");

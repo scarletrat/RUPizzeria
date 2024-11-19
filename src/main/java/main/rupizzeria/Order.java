@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * This class represents an order which is a list of pizzas associated with an order number
- *  * @author Gordon Lin, Christopher Lee modified Nov. 08, 2024
+ *  @author Gordon Lin, Christopher Lee modified Nov. 08, 2024
  */
 public class Order {
     private int number;

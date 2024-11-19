@@ -281,6 +281,7 @@ public class RUPizzeriaMenuController {
         alert.setContentText("Pizza added to your shopping cart!");
         alert.showAndWait();
     }
+
     @FXML
     /**
      * enlarges image when mouse is in image
@@ -290,6 +291,7 @@ public class RUPizzeriaMenuController {
         label.setScaleX(1.2);
         label.setScaleY(1.2);
     }
+
     @FXML
     /**
      * returns image to normal when mouse is out of image

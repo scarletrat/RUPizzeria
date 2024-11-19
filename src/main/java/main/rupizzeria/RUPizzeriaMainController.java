@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 /**
  * Controller in MVC model connects all controllers and controls main-view. Allows you to switch between displays.
- *  * @author Gordon Lin, Christopher Lee modified Nov. 08, 2024
+ * @author Gordon Lin, Christopher Lee modified Nov. 08, 2024
  */
 public class RUPizzeriaMainController {
     private Stage primaryStage; //the reference of the main window.
@@ -60,7 +60,7 @@ public class RUPizzeriaMainController {
 
     @FXML
     /**
-     * allows you to change the display to the shopping cart
+     * Allows you to change the display to the shopping cart
      */
     protected void displayCartView() {
         Stage view1 = new Stage(); //if we want to use a new window
@@ -87,7 +87,7 @@ public class RUPizzeriaMainController {
 
     @FXML
     /**
-     * allows you to change the display to the order list
+     * Allows you to change the display to the order list
      */
     protected void displayListView() {
         Stage view1 = new Stage(); //if we want to use a new window
@@ -113,7 +113,7 @@ public class RUPizzeriaMainController {
     }
     @FXML
     /**
-     * enlarges images when mose enters image
+     * Enlarges images when mose enters image
      */
     protected void imagePopout(MouseEvent event) {
         ImageView imageView = (ImageView) event.getSource();
@@ -122,7 +122,7 @@ public class RUPizzeriaMainController {
     }
     @FXML
     /**
-     * returns images to normal when mose exits image
+     * Returns images to normal when mose exits image
      */
     protected void imagePopoutExit(MouseEvent event) {
         ImageView imageView = (ImageView) event.getSource();
@@ -139,7 +139,7 @@ public class RUPizzeriaMainController {
     }
 
     /**
-     * get currrent order list of pizza lists
+     * Get current order list of orders of pizzas
      * @return orderlist
      */
     public ArrayList<Order> getOrderlist() {
@@ -153,7 +153,6 @@ public class RUPizzeriaMainController {
     protected void addCart(Pizza pizza){
         pizzas.add(pizza);
     }
-
 
     /**
      * Placed an order after clicking place order button.
