@@ -72,11 +72,13 @@ public class RUPizzeriaMenuController {
                 crust.setEditable(false);
                 price.setEditable(false);
                 updateMain();
-            } else {
-                System.out.println("File does not exist.");
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("ERROR");
+            alert.setHeaderText("File Does Not Exist");
+            alert.setContentText("Couldn't find file chicago-byo-jpg.");
+            alert.showAndWait();
         }
     }
 

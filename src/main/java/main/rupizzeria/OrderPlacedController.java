@@ -38,6 +38,7 @@ public class OrderPlacedController {
     @FXML
     private TextField total;
 
+
     /**
      * Get the reference to the MainController object.
      * We can call any public method defined in the controller through the reference.
@@ -51,8 +52,11 @@ public class OrderPlacedController {
         this.primaryStage = primaryStage;
         this.primaryScene = primaryScene;
         orderlist = mainController.getOrderlist();
+        if(!orderlist.isEmpty()){
+            indexBox.setValue(orderlist.getFirst().getOrderNumber());
+            orders.getItems().addAll(mainController.getPizzas());
+        }
         updateComboBox();
-        setListView();
     }
 
     @FXML
@@ -73,6 +77,7 @@ public class OrderPlacedController {
             indexes.add(order.getOrderNumber());
         }
         indexBox.setItems(FXCollections.observableArrayList(indexes));
+        indexes = new ArrayList<>();
     }
 
     @FXML
@@ -81,11 +86,12 @@ public class OrderPlacedController {
      */
     private void setListView(){
         Order orderSelected = new Order();
-        if(!orderlist.isEmpty()&&indexBox.getValue()!=null) {
-            for (Order order : orderlist) {
-                if (order.getOrderNumber() == (indexBox.getValue())) {
-                    orderSelected = orderlist.get(indexBox.getValue() - 1);
-                }
+        for (Order order : orderlist ) {
+            if(indexBox.getValue()==null){
+                return;
+            }
+            if (order.getOrderNumber() == (indexBox.getValue())) {
+                orderSelected = getOrder(indexBox.getValue());
             }
         }
         ObservableList<Pizza> list = FXCollections.observableArrayList(orderSelected.getPizzas());
@@ -107,14 +113,31 @@ public class OrderPlacedController {
      */
     protected void removeOrder(){
         if(!orderlist.isEmpty()&&indexBox.getValue()!=null) {
-            for (Order order : orderlist) {
-                if (order.getOrderNumber() == (indexBox.getValue())) {
-                    indexBox.getItems().remove(indexBox.getValue());
-                    break;
-                }
+           orders.getItems().clear();
+           int orderNumber = indexBox.getValue();
+           Order removeOrder = getOrder(orderNumber);
+           orderlist.remove(removeOrder);
+           indexBox.getItems().remove(indexBox.getValue());
+            if(!orderlist.isEmpty()){
+                indexBox.setValue(orderlist.getFirst().getOrderNumber());
+                orders.getItems().addAll(mainController.getPizzas());
             }
-        }    }
+        }
+    }
 
+    /**
+     * Helper method to get the order from the list given order number.
+     * @param number the order number.
+     * @return the order.
+     */
+    private Order getOrder(int number){
+        for(int i = 0; i<orderlist.size();i++){
+            if(orderlist.get(i).getOrderNumber() == number){
+                return orderlist.get(i);
+            }
+        }
+        return null;
+    }
     @FXML
     /**
      * Exports the orders to a file.

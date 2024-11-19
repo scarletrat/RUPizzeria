@@ -9,7 +9,7 @@ import java.io.IOException;
 
 /**
  * Main class in MVC model sets up stage and scene.
- *  * @author Gordon Lin modified Nov. 08, 2024
+ * @author Gordon Lin modified Nov. 08, 2024
  */
 public class RUPizzeriaMain extends Application {
     @Override
